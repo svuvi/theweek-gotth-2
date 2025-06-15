@@ -4,10 +4,10 @@ import "strings"
 import "github.com/svuvi/theweek-gotth-2/ui/icons"
 
 templ HomeHeader() {
-  <header class="max-w-[1200px] mx-auto font-inter lg:px-6">
+  <header class="mx-auto max-w-[1200px] font-inter">
     /* Desktop layout */
-    <div class="hidden lg:block">
-      <div class="flex relative text-[0.7rem] pt-1 pb-4">
+    <div class="hidden px-6 lg:block">
+      <div class="flex relative text-[0.7rem] pt-1 pb-5">
         <ul class="flex mt-0.5 w-full justify-center text-neutral-500 font-semibold">
           @regionItem("Хротрайк", "/tag/grootrijk", true)
           @regionItem("Мир", "/tag/world", false)
@@ -21,16 +21,16 @@ templ HomeHeader() {
         </div>
       </div>
       <div class="flex relative justify-between">
-        <div class="text-sm flex flex-col">
+        <div class="text-[0.825rem] flex flex-col">
           <todays-date class="mb-1"></todays-date>
           <a href="/todayspaper" class="text-neutral-900 hover:text-neutral-500 transition-colors">Сегодняшняя газета</a>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 w-full flex justify-center"><a href="/" class="font-chomsky text-7xl translate-y-2">The Week</a></div>
+        <div class="absolute bottom-0 left-0 right-0 w-full flex justify-center z-0 translate-y-3"><a href="/" class="font-chomsky text-7xl leading-none">The Week</a></div>
         <div class="h-10 text-sm">
           <stock-widget></stock-widget>
         </div>
       </div>
-      <nav class="text-sm text-neutral-900 font-inter lg:border-double lg:border-b-4">
+      <nav class="text-sm mt-2 text-neutral-900 font-inter border-double border-b-4">
         <ul class="flex justify-center 7th-separator ">
           @navItem("Хротрайк", "/tag/grootrijk")
           @navItem("Мир", "/tag/world")
@@ -62,7 +62,7 @@ templ HomeHeader() {
 }
 
 templ regionItem(text, url string, isHighlighted bool) {
-  <li class="flex"><a href={ url } class={ "px-2 pt-1.5 pb-1 transition-colors  hover:bg-neutral-100", templ.KV("text-neutral-900", isHighlighted) }>{ strings.ToUpper(text) }</a></li>
+  <li class="flex"><a href={ url } class={ "px-2 pt-1.5 pb-1 transition-colors  hover:bg-neutral-200", templ.KV("text-neutral-900", isHighlighted) }>{ strings.ToUpper(text) }</a></li>
 }
 
 templ navItem(text, url string) {
