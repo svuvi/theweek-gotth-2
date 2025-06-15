@@ -1,0 +1,10 @@
+package components
+
+import "strings"
+
+templ OpinionItem(props FeedItemProps) {
+  <a href={ props.URL } class="font-cactus text-neutral-900 hover:text-neutral-600 py-3">
+    <p class="text-neutral-500 hover:text-neutral-500 text-[0.65rem] font-semibold tracking-wider mb-0.5">{ strings.ToUpper(props.Author) }</p>
+    <h1 class="text-base/tight font-semibold">{ props.Title }</h1>
+  </a>
+}

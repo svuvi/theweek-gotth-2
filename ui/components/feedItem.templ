@@ -7,14 +7,18 @@ type FeedItemProps struct {
   Description string
   URL string
   CoverImageURL string
+  Author string
 }
 
 templ FeedItem(props FeedItemProps) {
   if !props.IsColumnPub{
     <section class="font-cactus pb-6 pt-4 md:pt-6 border-b-1">
       <a href={ props.URL } class="md:grid md:grid-cols-14 md:gap-x-[calc(2rem+1px)] text-neutral-900 hover:text-neutral-600">
-        <div class="md:col-span-5 flex flex-col gap-2">
-          <h1 class="text-lg/tight font-bold">{ props.Title }</h1>
+        <div class="md:col-span-5 flex flex-col">
+          if props.IsLive {
+            <p class="text-red-700 text-xs font-inter font-semibold mb-1">ПРЯМОЙ ЭФИР<span class="text-[0.7rem] ml-1.5">4ч назад</span></p>
+          }
+          <h1 class="text-lg/tight font-bold mb-2">{ props.Title }</h1>
           <span class="font-medium text-sm leading-4">@templ.Raw(MDstringToHTML(props.Description))</span>
         </div>
         <div class="mt-4 md:mt-0 md:col-span-9">
@@ -23,6 +27,14 @@ templ FeedItem(props FeedItemProps) {
       </a>
     </section>
   } else {
-
+    <section class="font-cactus">
+      <a href={ props.URL } class="flex flex-col gap-2 text-neutral-900 hover:text-neutral-600">
+        <div class=""><img src={ props.CoverImageURL }></div>
+        <div class="flex flex-col gap-2">
+          <h1 class="text-xl/tight font-light">{ props.Title }</h1>
+          <span class="font-medium text-sm leading-4">@templ.Raw(props.Description)</span>
+        </div>
+      </a>
+    </section>
   }
 }

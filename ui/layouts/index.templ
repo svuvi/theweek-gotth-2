@@ -9,29 +9,63 @@ templ Index() {
       <div class="px-6">
         @components.LiveTopics()
         <div class="lg:grid lg:grid-cols-20 lg:gap-x-[calc(2rem+1px)]">
-            <div class="lg:col-span-14 border-t-1">
-              <div class="">
-                @components.FeedItem(components.FeedItemProps{
-                  IsLive: true,
-                  IsColumnPub: false,
-                  Title: "Хротрайские ВС сохраняют контроль над всей ККК и северной Хамурией",
-                  Description: "Потерь в ВС Хротрайка пока нет, операция \"Капкан\" продолжается по плану - МО Хротрайка.\nПремьер-министр заверил жителей, что дополнительный призыв резервистов не потребуется.",
+          <div class="lg:col-span-14 border-t-1">
+            <div class="">
+              @components.FeedItem(components.FeedItemProps{
+                IsLive: true,
+                IsColumnPub: false,
+                Title: "Хротрайские ВС сохраняют контроль над всей ККК и северной Хамурией",
+                Description: "Потерь в ВС Хротрайка пока нет, операция \"Капкан\" продолжается по плану - МО Хротрайка.\nПремьер-министр заверил жителей, что дополнительный призыв резервистов не потребуется.",
+                URL: "/",
+                CoverImageURL: "/static/img/5.jpg",
+              })
+              @components.FeedItem(components.FeedItemProps{
+                IsLive: false,
+                IsColumnPub: false,
+                Title: "Акции Airbobus вернулись к докризисным значениям",
+                Description: "По словам руководства компании, преодолеть кризис помог ряд неизвестных заказчиков, перехвативших гособоронзаказ бывшей ККК.\nНа данный момент Airbobus продолжает строительство авиазавода в Мануловке и ветродрома на юге-западе Ризена.",
+                URL: "/",
+                CoverImageURL: "/static/img/4.jpg",
+              })
+            </div>
+          </div>
+          <div class="lg:block lg:col-span-6 lg:border-t-1 pt-6 lg:relative lg:before:content-[''] lg:before:absolute lg:before:top-0 lg:before:left-[-1rem] lg:before:w-[1px] lg:before:h-full lg:before:bg-neutral-300">
+            <div class="pb-5">
+              @components.FeedItem(components.FeedItemProps{
+                IsLive: false,
+                IsColumnPub: true,
+                Title: "10 способов сохранить настрой на стройку в 2025",
+                Description: "Пообщались с психологами и с Георгием Ковальским и узнали, как преодолеть выгорание и завершить свои мегапроекты точно в срок.",
+                URL: "/",
+                CoverImageURL: "/static/img/1.avif",
+              })
+            </div>
+            <div class="pt-2 border-t-1">
+              <p class="font-cactus font-semibold text-sm">Мнения</p>
+              <div class="flex flex-col divide-y-1 divide-neutral-300">
+                @components.OpinionItem(components.FeedItemProps{
+                  Title: "3-я часть обзора на калибрийскую линию метро",
+                  Author: "Георгий Ковальский",
                   URL: "/",
-                  CoverImageURL: "/static/img/5.jpg",
                 })
-                @components.FeedItem(components.FeedItemProps{
-                  IsLive: false,
-                  IsColumnPub: false,
-                  Title: "Акции Airbobus вернулись к докризисным значениям",
-                  Description: "По словам руководства компании, преодолеть кризис помог ряд неизвестных заказчиков, перехвативших гособоронзаказ бывшей ККК.\nНа данный момент Airbobus продолжает строительство авиазавода в Мануловке и ветродрома на юге-западе Ризена.",
+                @components.OpinionItem(components.FeedItemProps{
+                  Title: "Новые курсы по ненависти к Юрию Гоху",
+                  Author: "Даниил Иконников",
                   URL: "/",
-                  CoverImageURL: "/static/img/4.jpg",
+                })
+                @components.OpinionItem(components.FeedItemProps{
+                  Title: "Как оправдать военную агрессию против кого угодно",
+                  Author: "Андрей Шмомшенко",
+                  URL: "/",
+                })
+                @components.OpinionItem(components.FeedItemProps{
+                  Title: "О преимуществах перехода проекта Урбанойд в Telegram",
+                  Author: "Павел Дуров",
+                  URL: "/",
                 })
               </div>
             </div>
-            <div class="lg:block lg:col-span-6 lg:border-t-1 pt-6 lg:relative lg:before:content-[''] lg:before:absolute lg:before:top-0 lg:before:left-[-1rem] lg:before:w-[1px] lg:before:h-full lg:before:bg-neutral-300">
-              <div class="bg-teal-100 h-100"></div>
-            </div>
+          </div>
         </div>
       </div>
     </main>
