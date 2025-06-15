@@ -1,0 +1,70 @@
+package components
+
+import "strings"
+import "github.com/svuvi/theweek-gotth-2/ui/icons"
+
+templ HomeHeader() {
+  <header class="max-w-[1200px] mx-auto font-inter lg:px-6">
+    /* Desktop layout */
+    <div class="hidden lg:block">
+      <div class="flex relative text-[0.7rem] pt-1 pb-4">
+        <ul class="flex mt-0.5 w-full justify-center text-neutral-500 font-semibold">
+          @regionItem("Хротрайк", "/tag/grootrijk", true)
+          @regionItem("Мир", "/tag/world", false)
+          @regionItem("Скитсофренляндия", "/tag/schitzophrenland", false)
+          @regionItem("Калибрия", "/tag/kalibria", false)
+          @regionItem("Цукуси", "/tag/tsukusi", false)
+        </ul>
+        <div class="absolute right-0 flex gap-3.5 text-white font-semibold tracking-tight">
+          <a href="/support" class="px-3 py-1.5 transition-colors bg-blue-button hover:bg-blue-button-hvr rounded-sm">ПОДДЕРЖАТЬ ЗА 50₽/МЕС</a>
+          <a href="/login" class="px-3 py-1.5 transition-colors bg-blue-button hover:bg-blue-button-hvr rounded-sm">ВОЙТИ</a>
+        </div>
+      </div>
+      <div class="flex relative justify-between">
+        <div class="text-sm flex flex-col">
+          <todays-date class="mb-1"></todays-date>
+          <a href="/todayspaper" class="text-neutral-900 hover:text-neutral-500 transition-colors">Сегодняшняя газета</a>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 w-full flex justify-center"><a href="/" class="font-chomsky text-7xl translate-y-2">The Week</a></div>
+        <div class="h-10 text-sm">
+          <stock-widget></stock-widget>
+        </div>
+      </div>
+      <nav class="text-sm text-neutral-900 font-inter lg:border-double lg:border-b-4">
+        <ul class="flex justify-center 7th-separator ">
+          @navItem("Хротрайк", "/tag/grootrijk")
+          @navItem("Мир", "/tag/world")
+          @navItem("Бизнес", "/tag/business")
+          @navItem("Искусство", "/tag/art")
+          @navItem("Жизнь", "/tag/life")
+          @navItem("Мнения", "/tag/opinion")
+          <li class="w-px bg-neutral-300 my-4"></li>
+          @navItem("Музыка", "/tag/music")
+          @navItem("Игры", "/tag/games")
+          @navItem("Кулинария", "/tag/cooking")
+          @navItem("Погода", "/tag/weather")
+        </ul>
+      </nav>
+    </div>
+    /* Mobile */
+    <div class="block lg:hidden">
+      <section class="flex justify-between items-center px-3.5 pt-2.5 pb-1.5 border-b-1 border-neutral-200">
+        <button class="size-8 hover:bg-neutral-100 hover:cursor-pointer transition-colors flex justify-center items-center rounded-sm">@icons.Hamburget()</button>
+        <a href="/" class="mx-auto font-chomsky text-4xl -translate-y-1">The Week</a>
+        <a href="/login" aria-label="Войти" class="size-8 flex justify-center items-center">@icons.Person()</a>
+      </section>
+      <section class="px-5 py-3 flex justify-between items-center text-xs bg-neutral-100 border-b-1 border-neutral-200">
+        <todays-date class="font-semibold"></todays-date>
+        <button class="border-1 rounded-sm px-3 py-1.5">Поддержать за 50₽/мес</button>
+      </section>
+    </div>
+  </header>
+}
+
+templ regionItem(text, url string, isHighlighted bool) {
+  <li class="flex"><a href={ url } class={ "px-2 pt-1.5 pb-1 transition-colors  hover:bg-neutral-100", templ.KV("text-neutral-900", isHighlighted) }>{ strings.ToUpper(text) }</a></li>
+}
+
+templ navItem(text, url string) {
+  <li class="flex px-3 py-3.5"><a href={ url } class="pr-1.5 hover:underline hover:underline-offset-4 hover:decoration-2">{ text }</a>@icons.Schevron()</li>
+}

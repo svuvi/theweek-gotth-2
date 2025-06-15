@@ -1,5 +1,9 @@
 package layouts
 
+import "github.com/svuvi/theweek-gotth-2/ui/components"
+
 templ Index() {
-  @Base("The Week - Новости Урбанойда")
+  @Base("The Week - Новости Урбанойда") {
+    @components.HomeHeader()
+  }
 }
