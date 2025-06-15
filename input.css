@@ -1,14 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap");
 @import "tailwindcss";
 
 @font-face {
   font-family: Chomsky;
-  src: url("/static/chomsky.woff2");
+  src: url("/static/fonts/chomsky.woff2");
+}
+
+@font-face {
+  font-family: Shobhika;
+  src: url("/static/fonts/shobhika-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Shobhika;
+  font-weight: bold;
+  src: url("/static/fonts/shobhika-bold.otf") format("opentype");
 }
 
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-chomsky: "Chomsky";
+  --font-shobhika: "Shobhika", sans-serif;
+  --font-cactus: "Cactus Classical Serif", serif;
   --color-blue-button: rgb(86, 123, 149);
   --color-blue-button-hvr: rgb(50, 104, 145);
 }

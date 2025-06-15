@@ -1,0 +1,28 @@
+package components
+
+type FeedItemProps struct {
+  IsLive bool
+  IsColumnPub bool // Places the article on the right side of desktop layout, uses different layout
+  Title string
+  Description string
+  URL string
+  CoverImageURL string
+}
+
+templ FeedItem(props FeedItemProps) {
+  if !props.IsColumnPub{
+    <section class="font-cactus pb-6 pt-4 md:pt-6 border-b-1">
+      <a href={ props.URL } class="md:grid md:grid-cols-14 md:gap-x-[calc(2rem+1px)] text-neutral-900 hover:text-neutral-600">
+        <div class="md:col-span-5 flex flex-col gap-2">
+          <h1 class="text-lg/tight font-bold">{ props.Title }</h1>
+          <span class="font-medium text-sm leading-4">@templ.Raw(MDstringToHTML(props.Description))</span>
+        </div>
+        <div class="mt-4 md:mt-0 md:col-span-9">
+          <img src={ props.CoverImageURL }>
+        </div>
+      </a>
+    </section>
+  } else {
+
+  }
+}

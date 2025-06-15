@@ -1,0 +1,15 @@
+package components
+
+templ LiveTopics() {
+  <section class="flex md:justify-center gap-5 text-xs font-inter overflow-hidden font-semibold py-4 text-neutral-900">
+    <span class="text-red-700 whitespace-nowrap">ПРЯМОЙ ЭФИР</span>
+    @liveTopic("Стрельба в Нордкапске", "/")
+    @liveTopic("Протесты в БКГ", "/")
+    @liveTopic("Война в Арктике", "/")
+    @liveTopic("Урбанвидение", "/")
+  </section>
+}
+
+templ liveTopic(title, url string) {
+  <a href={ url } class="whitespace-nowrap hover:cursor-pointer hover:text-neutral-500">{ title }<span class="text-[0.7rem] font-light ml-1.5 text-neutral-700">10ч назад</span></a>
+}
